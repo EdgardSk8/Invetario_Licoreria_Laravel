@@ -21,3 +21,6 @@ return new class extends Migration {
         Schema::dropIfExists('roles');
     }
 };
+
+// Borrar todo y volver a crear las migraciones: 
+// php artisan migrate:fresh 

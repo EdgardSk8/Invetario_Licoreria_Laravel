@@ -46,3 +46,27 @@ class User extends Authenticatable
         ];
     }
 }
+
+/*
+
+Probar Modelos con el comando de Tinker: php artisan tinker
+
+Ingresar los modelos: 
+
+use App\Models\Roles;
+use App\Models\Usuarios;
+use App\Models\Categorias;
+use App\Models\Productos;
+use App\Models\Ventas;
+use App\Models\DetalleVenta;
+use App\Models\MovimientosInventario;
+
+Probar el modelo ejemplo: 
+
+Roles::all();
+Usuarios::all();
+Categorias::all();
+Productos::all();
+
+*/
+
