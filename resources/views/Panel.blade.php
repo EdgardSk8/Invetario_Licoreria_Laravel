@@ -8,11 +8,17 @@
 
     <title>Panel</title>
 
+    @vite(['resources/css/Panel.css'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    @include('navbar')
+
 </head>
 
 <body>
 
-<h1>Vista Admin</h1>
+
+
     
 </body>
 
