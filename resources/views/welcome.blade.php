@@ -1,4 +1,64 @@
 <!DOCTYPE html>
+
+<!-- 
+
+Vista de Administradores:
+
+1. Panel
+
+Vista de Ejecutivo de Ventas
+
+1. Ventas
+
+Vista de Clientes
+
+1. Recibos
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">

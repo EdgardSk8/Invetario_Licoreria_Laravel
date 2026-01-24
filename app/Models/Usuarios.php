@@ -24,4 +24,10 @@ class Usuarios extends Authenticatable
     {
         return $this->hasMany(Ventas::class, 'id_usuario', 'id_usuario');
     }
+
+    public function getAuthPassword()
+    {
+        return $this->contrasenia;
+    }
+
 }
