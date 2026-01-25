@@ -17,12 +17,13 @@
 </nav>
 
 <div id="menu_lateral">
-    <a href="#">Dashboard</a>
-    <a href="#">Productos</a>
-    <a href="#">Categorías</a>
-    <a href="#">Proveedores</a>
-    <a href="#">Ventas</a>
-    <a href="#">Usuarios</a>
+    <a href="./Principal">Dashboard</a>
+    <a href="./Productos">Productos</a>
+    <a href="./Categorias">Categorías</a>
+    <a href="./Proveedores">Proveedores</a>
+    <a href="./Ventas">Ventas</a>
+    <a href="./Recibos">Recibos</a>
+    <a href="./Usuarios">Usuarios</a>
 
     <!-- Cerrar sesión -->
     <form action="{{ route('logout') }}" method="POST" class="logout-form">
@@ -42,11 +43,21 @@ btnMenu.addEventListener('click', () => {
     btnMenu.classList.toggle('is-active');  // animación hamburguesa
 });
 
+menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('activo');      // ocultar sidebar
+        btnMenu.classList.remove('is-active'); // volver hamburguesa a estado normal
+    });
+})
+
 </script>
 
 <style>
 
 /* ----------------------------------------------------------------------------------- */
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body{ font-family: 'Inter', sans-serif; background-color: rgb(238, 238, 238); }
 
 /* [BARRA DE NAVEGACION] */
 
@@ -54,13 +65,14 @@ btnMenu.addEventListener('click', () => {
     display: flex;
     justify-content: space-between;
     background-color: #373f47;
-    padding: 10px 10px;
+    padding: 10px 20px;
     color: white;
     height: 50px; /* Importante */
+    z-index: -1000;
 }
 
-.nav_izquierdo { display: flex; align-items: center; gap: 10px; }
-.titulo { font-weight: bold; font-size: 30px; }
+.nav_izquierdo { display: flex; align-items: center; gap: 15px; }
+.titulo { font-weight: bold; font-size: 20px; }
 .Usuario_Perfil{ display: flex; flex-direction: column; }
 .Nombre_Usuario { font-size: 18px; font-weight: bold; }
 .Usuario_Rol { font-size: 13px; color: #a0a5a9; }

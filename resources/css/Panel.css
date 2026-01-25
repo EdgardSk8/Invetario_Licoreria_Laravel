@@ -7,8 +7,12 @@ https://www.justinmind.com/wp-content/webp-express/webp-images/uploads/2020/02/d
 */
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
-body{ font-family: 'Inter', sans-serif; background-color: rgb(238, 238, 238); }
+body{ font-family: 'Inter', sans-serif; }
 
-/* ----------------------------------------------------------------------- */
+#Contenedor{
+    height: calc(100vh - 50px);
+    width: 100%;
+    border: 2px solid red;
+}
 
-/* MENÚ LATERAL */
+#vistas{ border: 2px solid blue; }

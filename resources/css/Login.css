@@ -7,7 +7,7 @@ https://dribbble.com/shots/25585909-Minimal-Login-Screen
 */
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
-body{ font-family: 'Inter', sans-serif; }
+body{ font-family: 'Inter', sans-serif; background-color: rgb(238, 238, 238); }
 h1, p{ color: white; font-weight: bold; }
 .ms_error{ color: red;position: absolute; top: 75%;}
 
