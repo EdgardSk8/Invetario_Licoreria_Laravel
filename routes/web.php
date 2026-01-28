@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 # INSERCION DE ARCHIVOS CONTROLADORES #
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsuarioController;
 
 # ----------------------------------------------------------------------------------------------------- #
 
@@ -42,3 +43,8 @@ Route::middleware('auth')->group(function () {
 Route::post('/login', [LoginController::class, 'login'])->name('login.post');
 
 # ----------------------------------------------------------------------------------------------------- #
+
+# CONTROLADOR DE USUARIOS #
+
+Route::post('/usuarios/crear', [UsuarioController::class, 'crearUsuario']);
+Route::get('/usuarios', [UsuarioController::class, 'ListarUsuarios']);

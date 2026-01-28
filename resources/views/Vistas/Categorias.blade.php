@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('Panel')
 
-<head>
+@section('vistas')
+<h1>pepe</h1>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Categorias</title>
-
-
-</head>
-<body>
-    
-</body>
-</html>
+@endsection

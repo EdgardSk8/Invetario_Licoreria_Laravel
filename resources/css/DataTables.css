@@ -1,0 +1,100 @@
+/* ------------------------------------------------------------------------------------------ */
+
+/* [TABLA DE DATOS] */
+
+#tablaUsuarios thead th {
+    background-color: #4a5568; /* gris oscuro elegante */
+    color: #ffffff;            /* texto blanco */
+    font-weight: bold;          /* un poco más grueso */
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 12px;
+    border-bottom: 2px solid #2a2d31; /* línea sutil debajo */
+}
+
+#tablaUsuarios tbody td {
+    text-align: center;
+    background-color: #f7fafc;  /* fondo claro y elegante */
+    color: #482d2d;             /* texto gris oscuro */
+    padding: 10px 12px;         /* espacio interno */
+    border-bottom: 1px solid #2a2d31; /* línea separadora sutil */
+    font-size: 12px;            /* tamaño de fuente legible */
+}
+
+#tablaUsuarios tbody tr:nth-child(even) td {background-color: #edf2f7; }/* Filas alternadas */
+#tablaUsuarios tbody tr:hover td {background-color: #e2e8f0;}/* Hover sobre filas */
+
+/* ------------------------------------------------------------------------------------------ */
+
+/* [SELECTOR] */
+
+/* Contenedor del selector de cantidad de registros */
+.dt-length {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Selector <select> estilizado */
+.dt-input {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e0;
+    background-color: #ffffff;
+    text-align: center;
+    color: #2d3748;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    appearance: none; /* quita la flecha nativa en algunos navegadores */
+}
+
+/* Hover sobre el selector */
+.dt-input:hover {background-color: #f0f4f8;box-shadow: 0 0 6px rgba(74,85,104,0.3); }
+
+
+.dt-input:focus { /* Focus sobre el selector */
+    outline: none;
+    border-color: #b8c4d8;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(74,85,104,0.4); 
+}
+
+/* Opciones del selector */
+.dt-input option {/**/}
+
+/* ------------------------------------------------------------------------------------------ */
+
+/* [EXTRAS] */
+
+.dt-layout-row {
+    display: flex;
+    justify-content: space-between; /* izquierda paging, derecha search */
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.dt-info{font-weight: bold;}
+
+.dt-paging-button {/* Botones de paginación */
+    padding: 6px 12px;
+    border: 1px solid #4a5568;
+    color: #4a5568;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.dt-paging-button:hover:not(.disabled):not(.current) {background-color: #4a5568;color: #ffffff;}/* Hover sobre botones */
+.dt-paging-button.current {background-color: #4a5568;color: #ffffff;font-weight: bold;}/* Botón activo */
+.dt-paging-button.disabled {opacity: 0.5;cursor: not-allowed;}/* Botón deshabilitado */
+.dt-search {display: flex;justify-content: flex-end;align-items: center;gap: 5px;}/* Contenedor del buscador */
+.dt-search label {font-weight: bold;}
+.dt-search input:hover {border-color: #4a5568;box-shadow: 0 0 8px rgba(74,85,104,0.4);}
+

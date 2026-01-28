@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('contrasenia', 255);
 
             // Datos legales del trabajador
+            $table->enum('genero', ['Masculino', 'Femenino'])->nullable();
+            $table->string('fotografia', 255)->nullable();
             $table->string('documento_identificacion', 20)->unique();
             $table->date('fecha_nacimiento');
             $table->string('direccion', 150);

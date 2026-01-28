@@ -9,24 +9,25 @@
     <title>Panel</title>
 
     @vite(['resources/css/Panel.css'])
-    @include('navbar')
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <div id="Contenedor">
-
-        <main id="vistas">
-            
-        </main>
-
-    </div>
+    
 
 </head>
 
 <body>
 
+    @include('navbar')
 
- @vite(['resources/js/Cargar_Vistas.js'])
+    <div id="Contenedor">
+
+        <main id="vistas">
+            <!-- Mis vistas -->  @yield('vistas') 
+        </main>
+
+    </div>
+
+@vite(['resources/js/Inicializador.js'])
     
 </body>
 

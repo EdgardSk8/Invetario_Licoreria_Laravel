@@ -13,6 +13,7 @@ body{ font-family: 'Inter', sans-serif; }
     height: calc(100vh - 50px);
     width: 100%;
     border: 2px solid red;
+    overflow: hidden;
 }
 
 #vistas{ border: 2px solid blue; }

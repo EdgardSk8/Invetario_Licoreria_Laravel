@@ -33,25 +33,6 @@
 </div>
 
 
-
-<script>
-const btnMenu = document.getElementById('menu_desplegable');
-const menu = document.getElementById('menu_lateral');
-
-btnMenu.addEventListener('click', () => {
-    menu.classList.toggle('activo');        // tu menú lateral
-    btnMenu.classList.toggle('is-active');  // animación hamburguesa
-});
-
-menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.remove('activo');      // ocultar sidebar
-        btnMenu.classList.remove('is-active'); // volver hamburguesa a estado normal
-    });
-})
-
-</script>
-
 <style>
 
 /* ----------------------------------------------------------------------------------- */
