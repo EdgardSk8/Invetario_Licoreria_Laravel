@@ -1,21 +1,24 @@
 import $ from 'jquery';
 
 export function initUsuarios() {
+    
     const $tabla = $('#tablaUsuarios');
 
     // Destruir DataTable previa si existiera
-    if ($.fn.DataTable.isDataTable($tabla)) {
-        $tabla.DataTable().destroy();
-    }
+    if ($.fn.DataTable.isDataTable($tabla)) { $tabla.DataTable().destroy();}
 
-    // Inicializar DataTable con AJAX
-    $tabla.DataTable({
-        ajax: {
-            url: '/usuarios', // ruta para obtener datos
-            dataSrc: 'data'
-        },
+    $tabla.DataTable({// Inicializar DataTable con AJAX
+
+        ajax: { url: '/usuarios', dataSrc: 'data'},
         columns: [
-            { data: 'fotografia', title: 'Fotografía', defaultContent: ' - ' },
+            { data: 'fotografia', title: 'Fotografía',    orderable: false,
+                searchable: false, render: function (data) {
+                return `<img class="fotografia"
+                            src="${data ? `/storage/${data}` : '/Recursos/SinFoto.png'}"
+                            alt="Foto usuario" onerror="this.src='/Recursos/SinFoto.png'"
+                        >`;
+                }
+            },
             { data: 'nombre_usuario', title: 'Nombre', defaultContent: ' - ' },
             { data: 'usuario_login', title: 'Usuario', defaultContent: ' - ' },
             { data: 'documento_identificacion', title: 'Documento', defaultContent: ' - ' },
@@ -42,16 +45,60 @@ export function initUsuarios() {
             loadingRecords: "Cargando...",
             zeroRecords: "No se encontraron resultados",
             emptyTable: "No hay datos disponibles",
-            paginate: {
-                first: "Primero",
-                previous: "Anterior",
-                next: "Siguiente",
-                last: "Último"
-            },
+            paginate: {first: "Primero", previous: "Anterior", next: "Siguiente", last: "Último"},
             aria: {
                 sortAscending: ": activar para ordenar la columna ascendente",
                 sortDescending: ": activar para ordenar la columna descendente"
             }
         }
     });
+
+const btnAgregarUsuarios = document.querySelector('.DisplayAgregarUsuarios');
+const formUsuarios = document.querySelector('.form-usuarios');
+const dtContainer = document.querySelector('.dt-container');
+
+const transitionOriginal = dtContainer.style.transition;
+dtContainer.style.transition = "none";
+dtContainer.style.transform = "translateY(-50px)";
+dtContainer.offsetHeight;
+dtContainer.style.transition = transitionOriginal
+let abierto = false;
+
+btnAgregarUsuarios.addEventListener('click', () => {
+    if (!abierto) {
+        formUsuarios.style.maxHeight = formUsuarios.scrollHeight + "px";
+        formUsuarios.style.opacity = 1;
+        dtContainer.style.transform = "translateY(0px)";
+    } else {
+        formUsuarios.style.maxHeight = "0";
+        formUsuarios.style.opacity = 0;
+        dtContainer.style.transform = "translateY(-50px)";
+    }
+    abierto = !abierto;
+});
+
+    
 }
+
+mostrarFotoPreview();
+
+function mostrarFotoPreview() {
+
+    const input = document.getElementById('fotografiaInput');
+    const preview = document.getElementById('fotoPreview');
+
+    input.addEventListener('change', () => {
+        const file = input.files[0];
+
+        if (!file) { preview.innerHTML = 'Vista previa';return;}
+        if (!file.type.startsWith('image/')) { preview.innerHTML = 'Archivo no válido'; input.value = '';return;}
+
+        const reader = new FileReader();
+
+        reader.onload = e => { preview.innerHTML = `<img src="${e.target.result}">`;};
+        reader.readAsDataURL(file);
+
+    });
+}
+
+

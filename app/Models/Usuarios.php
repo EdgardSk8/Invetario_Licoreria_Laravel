@@ -17,6 +17,8 @@ class Usuarios extends Authenticatable
         'nombre_usuario',
         'usuario_login',
         'contrasenia',
+        'genero',
+        'fotografia',
         'documento_identificacion',
         'fecha_nacimiento',
         'direccion',

@@ -2,11 +2,15 @@
 
 /* [CONTENEDORES] */
 
+h1{padding: 10px 5px; color: #26262e;}
+
 .contenedor {
     display: flex;
     min-height: calc(100vh - 50px);
     padding: 20px;
     gap: 20px;
+    /* Esto asegura que el contenedor use toda la altura disponible */
+    height: calc(100vh - 50px);
 }
 
 #contenedor-informacion {
@@ -14,6 +18,10 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    /* Scroll si el contenido excede */
+    height: 100%;
+    overflow-y: auto;
 }
 
 #contenedor-administracion {
@@ -22,4 +30,129 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding: 10px;
+    
+    /* Scroll si el contenido excede */
+    height: 100%;
+    overflow-y: auto;
 }
+
+.Barra{
+    display: flex;           
+    justify-content: space-between;
+    align-items: center;   
+    padding: 10px 20px;       
+    background-color: #edf2f7; 
+    border-radius: 8px; 
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* [FORM USUARIOS] */
+
+.form-usuarios {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* [ANIMACIONES NO TOCAR] */
+
+.form-usuarios {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 
+        max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.5s ease-in-out 0.2s; 
+}
+
+.form-usuarios.abierto {
+    max-height: 2000px;
+    opacity: 1;
+    transition: 
+        max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease-in-out 0.2s;
+}
+
+.dt-container {transition: transform 0.4s ease;}
+.dt-container.abierto {transform: translateY(20px);}
+
+/* [ANIMACIONES NO TOCAR] */
+
+.form-usuarios > div {display: flex;flex-direction: column;}/* Cada bloque */
+.form-usuarios label {font-size: 13px;font-weight: bold;color: #2d3748;}/* Labels */
+
+/* Inputs generales */
+.form-usuarios input,
+.form-usuarios textarea,
+.form-usuarios select {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #2d3748;
+    transition: all 0.5s ease;
+}
+
+/* Focus elegante */
+.form-usuarios input:focus,
+.form-usuarios textarea:focus,
+.form-usuarios select:focus {
+    outline: none;
+    border-color: #4a5568;
+    box-shadow: 0 0 0 2px rgba(74, 85, 104, 0.2);
+}
+
+.form-usuarios textarea {resize: none;}/* Textarea (Direccion) */
+.form-usuarios select {cursor: pointer;}/* Selects */
+.form-usuarios input[type="file"] {padding: 6px;background-color: #f7fafc;}/* File input */
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* [GENERO, FOTOGRAFIA Y ROL] */
+
+.form-usuarios div:nth-last-child(4), .form-usuarios div:nth-last-child(3),
+.form-usuarios div:nth-last-child(2)  {grid-column: span 1; }
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* [BOTON] */
+
+.form-usuarios button {
+    grid-column: span 3;
+    padding: 10px;
+    background-color: #4a5568;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-usuarios button:hover {background-color: #2d3748;}
+
+/* ------------------------------------------------------------------------------------------- */
+
+/* [PREVIEW DE FOTOGRAFIA] */
+
+#fotoPreview {
+    grid-row: span 2; 
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7fafc;
+    color: #a0aec0;
+    font-size: 11px;
+}
+
+#fotoPreview img{ max-width: auto; max-height: 80px; height: 100%; }
+.oculto { display: none !important; }
+
